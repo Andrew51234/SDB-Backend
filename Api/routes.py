@@ -532,7 +532,7 @@ def login():
                                                                                    "email": request.form["email"],
                                                                                    "password": request.form[
                                                                                        "password"]})
-    return r["token"] 
+    return r.text
     #"User Server Communicated!"
 
 
