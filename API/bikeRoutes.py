@@ -112,7 +112,6 @@ def AddBike():
 ##########################################################################################################################
 @app.route('/bikes/getbike', methods=['POST'])  # here
 def getBike():
-<<<<<<< HEAD
     #try:
       #  token = flask.request.form["Token"]
      #   data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
@@ -127,22 +126,6 @@ def getBike():
         #data = {'Response': out,
          #       'status': 403}
         #return data
-=======
-    try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
-    except:
-        txt = {"Action": 'Token is Invalid'}
-        jsontxt = json.dumps(txt)
-        jsonFile = open("log.json", 'w')
-        jsonFile.write(jsontxt)
-        jsonFile.close()
-        out = json.dumps(txt, default=str)
-        resp = flask.make_response(out)
-        data = {'Response': out,
-                'status': 403}
-        return data
->>>>>>> 6557139b5c40ee28553ea8c403ebb040b2992148
     info = {
         "Name": request.form["Name"]
     }
