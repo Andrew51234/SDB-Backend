@@ -532,7 +532,8 @@ def login():
                                                                                    "email": request.form["email"],
                                                                                    "password": request.form[
                                                                                        "password"]})
-    return "User Server Communicated! test"
+    return r["token"] 
+    #"User Server Communicated!"
 
 
 @app.route('/users/changepw', methods=['POST'])
