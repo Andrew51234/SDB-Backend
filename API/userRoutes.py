@@ -1058,8 +1058,9 @@ def login():
 @app.route('/users/changepw', methods=['POST'])
 def changepw():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+       # token = flask.request.form["Token"]
+       # data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+       print("changepw")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -1105,8 +1106,10 @@ def changepw():
 @app.route('/users/getname/<email>', methods=['POST'])
 def getname(email):
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+       # data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+       
+        print("getname")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
