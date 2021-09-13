@@ -220,8 +220,9 @@ def createUser():
 @app.route('/users/getuserbike/<email>', methods=['POST'])
 def getUserbike(email):
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("getuserbike")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -245,7 +246,7 @@ def getUserbike(email):
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -257,8 +258,9 @@ def getUserbike(email):
 @app.route('/users/getusertempbike/<email>', methods=['POST'])
 def getUserTempBike(email):
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("getusertempbike")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -281,7 +283,7 @@ def getUserTempBike(email):
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -293,8 +295,9 @@ def getUserTempBike(email):
 @app.route('/users/getcommand', methods=['POST'])
 def getCMD():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("getcommand")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -321,7 +324,7 @@ def getCMD():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -333,8 +336,9 @@ def getCMD():
 @app.route('/users/updatebikeid', methods=['POST'])
 def updateBikeID():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+       # token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("updatebikeid")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -362,7 +366,7 @@ def updateBikeID():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -374,8 +378,9 @@ def updateBikeID():
 @app.route('/users/updatetempbikeid', methods=['POST'])
 def updateTempBikeID():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("updatetempbikeid")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -403,7 +408,7 @@ def updateTempBikeID():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -415,8 +420,9 @@ def updateTempBikeID():
 @app.route('/users/nullifybikeid', methods=['POST'])
 def nullifyBikeID():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("nullifybikeid")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -443,7 +449,7 @@ def nullifyBikeID():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -456,8 +462,9 @@ def nullifyBikeID():
 @app.route('/users/addnumber', methods=['POST'])
 def addNumber():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("addnumber")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -484,7 +491,7 @@ def addNumber():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -496,8 +503,9 @@ def addNumber():
 @app.route('/users/editnumber', methods=['POST'])
 def editNumber():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("editnumber")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -525,7 +533,7 @@ def editNumber():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -537,8 +545,9 @@ def editNumber():
 @app.route('/users/removenumber', methods=['POST'])
 def removeNumber():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("removenumber")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -565,7 +574,7 @@ def removeNumber():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -577,8 +586,9 @@ def removeNumber():
 @app.route('/users/gimmenums/<email>', methods=['POST'])
 def getEmergencyNumbers(email):
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("gimmenums")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -602,7 +612,7 @@ def getEmergencyNumbers(email):
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -620,8 +630,9 @@ def getEmergencyNumbers(email):
 @app.route('/users/createRide', methods=['POST'])
 def createRide():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("createride")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -652,7 +663,7 @@ def createRide():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -664,8 +675,9 @@ def createRide():
 @app.route('/users/removeride', methods=['POST'])
 def removeRide():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("removeride")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -692,7 +704,7 @@ def removeRide():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -706,8 +718,9 @@ def removeRide():
 @app.route('/users/getrides/<email>', methods=['POST'])
 def getRide(email):
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("getrides")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -729,7 +742,7 @@ def getRide(email):
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -746,8 +759,9 @@ def getRide(email):
 @app.route('/users/checkemail', methods=['POST'])
 def checkEmail():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("checkemail")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -773,7 +787,7 @@ def checkEmail():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -785,8 +799,9 @@ def checkEmail():
 @app.route('/users/emailVal', methods=['POST'])
 def emailVall():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("emailval")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -811,7 +826,7 @@ def emailVall():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -827,8 +842,9 @@ def emailVall():
 @app.route('/users/forgotpassword', methods=['POST'])
 def forgotPW():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("forgotpassword")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -872,7 +888,7 @@ def forgotPW():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -884,8 +900,9 @@ def forgotPW():
 @app.route('/users/checkcode', methods=['POST'])
 def checkcode():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("checkcode")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -912,7 +929,7 @@ def checkcode():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -925,8 +942,9 @@ def checkcode():
 @app.route('/users/changepwez', methods=['POST'])
 def changePWEZ():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("changepwez")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -953,7 +971,7 @@ def changePWEZ():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -968,8 +986,9 @@ def changePWEZ():
 @app.route('/users/removecode', methods=['POST'])
 def removecode():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("removecode")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -994,7 +1013,7 @@ def removecode():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -1041,7 +1060,7 @@ def login():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         txt = {"Action": 'Token could not be verified'}
         # jsontxt = json.dumps(txt)
@@ -1090,7 +1109,7 @@ def changepw():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -1146,8 +1165,9 @@ def getname(email):
 @app.route('/users/getbalance/<email>', methods=['POST'])
 def getbalance(email):
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("getbalance")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -1170,7 +1190,7 @@ def getbalance(email):
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -1183,8 +1203,9 @@ def getbalance(email):
 @app.route('/users/nullifytempbikeid', methods=['POST'])
 def nullifyTempBikeID():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("nullifytempbikeid")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -1210,7 +1231,7 @@ def nullifyTempBikeID():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
@@ -1223,8 +1244,9 @@ def nullifyTempBikeID():
 @app.route('/users/addtobalance', methods=['POST'])  ## needs bike name (Name) and money number (money)
 def addtobalance():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("addtobalance")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -1251,7 +1273,7 @@ def addtobalance():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
