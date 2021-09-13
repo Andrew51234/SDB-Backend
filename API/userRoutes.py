@@ -1162,7 +1162,7 @@ def getname(email):
         return data
 
 
-@app.route('/users/getbalance/<email>', methods=['POST'])
+@app.route('/users/getbalance/<email>', methods=['GET'])
 def getbalance(email):
     try:
         #token = flask.request.form["Token"]
