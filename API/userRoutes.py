@@ -1122,7 +1122,7 @@ def changepw():
 ########### Newest stuff
 
 
-@app.route('/users/getname/<email>', methods=['POST'])
+@app.route('/users/getname/<email>', methods=['GET'])
 def getname(email):
     try:
         #token = flask.request.form["Token"]
