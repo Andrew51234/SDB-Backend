@@ -1066,7 +1066,6 @@ def login():
     }
 
 
-
     validated = signinValidate(request.form)
     error = validated["error"]
     message = validated["message"]
