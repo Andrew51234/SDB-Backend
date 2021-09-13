@@ -203,14 +203,14 @@ class DataBase:
             if record['email'] == params['email']:
                
                target = record['rides']
-               size = len(target)
-               rideNo = size+1
+               
+               rideNo = record["numberOfRides"] + 1
                
                newRide = [{"rideNo":rideNo}, {"history":params["history"]}, {"startDate":params["startDate"]}, {"endDate":params["endDate"]}, {"startTime":params["startTime"]}, {"endTime":params["endTime"]}]
                
                target.append(newRide)
                
-               self.db.users.find_one_and_update({"email" : params['email']},{"$set":{"rides": target}},upsert=True)
+               self.db.users.find_one_and_update({"email" : params['email']},{"$set":{"rides": target,"numberOfRides": rideNo }},upsert=True)
                return {"error": False, "message": "Ride successfully created"}
         else:
             return {"error": True, "message": "Email not found"}
