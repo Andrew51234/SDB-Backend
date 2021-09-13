@@ -1133,7 +1133,7 @@ def getname(email):
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
