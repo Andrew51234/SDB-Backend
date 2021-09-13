@@ -112,20 +112,21 @@ def AddBike():
 ##########################################################################################################################
 @app.route('/bikes/getbike', methods=['POST'])  # here
 def getBike():
-    #try:
-      #  token = flask.request.form["Token"]
-     #   data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
-    #except:
-        #txt = {"Action": 'Token is Invalid'}
-        #jsontxt = json.dumps(txt)
-        #jsonFile = open("../log.json", 'w')
-        #jsonFile.write(jsontxt)
-        #jsonFile.close()
-        #out = json.dumps(txt, default=str)
-        #resp = flask.make_response(out)
-        #data = {'Response': out,
-         #       'status': 403}
-        #return data
+    try:
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("getbike")
+    except:
+        txt = {"Action": 'Token is Invalid'}
+        jsontxt = json.dumps(txt)
+        jsonFile = open("../log.json", 'w')
+        jsonFile.write(jsontxt)
+        jsonFile.close()
+        out = json.dumps(txt, default=str)
+        resp = flask.make_response(out)
+        data = {'Response': out,
+                'status': 403}
+        return data
     info = {
         "Name": request.form["Name"]
     }
@@ -139,7 +140,7 @@ def getBike():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         output['data'] = None
         output['message'] = "False"
@@ -153,7 +154,7 @@ def getBike():
 
 
 # ########################################################################################################################
-@app.route('/bikes', methods=['POST'])
+@app.route('/bikes', methods=['GET'])
 def getAllBikes():
     try:
         token = flask.request.form["Token"]
@@ -179,7 +180,7 @@ def getAllBikes():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         output['data'] = None
         output['message'] = "False"
@@ -294,8 +295,9 @@ def UpdateBike():
 @app.route('/bikes/updateCommand', methods=['POST'])
 def updateCommand():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("updatecommand")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -334,8 +336,9 @@ def updateCommand():
 @app.route('/bikes/lockBike', methods=['POST'])
 def updateLocked():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+       # token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("lockbike")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -373,8 +376,9 @@ def updateLocked():
 @app.route('/bikes/unlockBike', methods=['POST'])
 def updateunLocked():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("unlockbike")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -413,8 +417,9 @@ def updateunLocked():
 @app.route('/bikes/updateBike2', methods=['POST'])
 def updateBike2():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("updatebikke2")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -457,8 +462,9 @@ def updateBike2():
 @app.route('/bikes/shareBike', methods=['POST'])
 def sharebike():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("sharebike")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -499,8 +505,9 @@ def sharebike():
 @app.route('/bikes/stopShareBike', methods=['POST'])
 def stopsharebike():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("stopcharebike")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -542,8 +549,9 @@ def stopsharebike():
 @app.route('/bikes/editPrice', methods=['POST'])
 def editprice():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+       # token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("editprice")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -580,11 +588,12 @@ def editprice():
         return data
 
 
-@app.route('/bikes/getbikePrice/<name>', methods=['POST'])  # here
+@app.route('/bikes/getbikePrice/<name>', methods=['GET'])  # here
 def getBikePrice(name):
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("getbikeprice")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -625,8 +634,9 @@ def getBikePrice(name):
 @app.route('/bikes/getBikeLocked/<name>', methods=['GET'])  # here
 def getBikeLocked(name):
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("getbikelocked")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -667,8 +677,9 @@ def getBikeLocked(name):
 @app.route('/bikes/getBikeShared/<name>', methods=['GET'])  # here
 def getBikeShared(name):
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("getbikeshared")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -680,7 +691,6 @@ def getBikeShared(name):
         data = {'Response': out,
                 'status': 403}
         return data
-
     info = {
         "Name": request.form["Name"],
         "North": request.form["North"],
