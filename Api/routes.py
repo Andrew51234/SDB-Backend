@@ -190,7 +190,7 @@ def createUser():
     token = jwt.encode({'user': auth, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)},
                        app.config['SECRET_KEY'], "HS256")
     req = flask.make_response(token)
-    r = requests.post(url="https://sdb-app-users.herokuapp.com/register", data={'Token': token,
+    r = requests.post(url="https://sdb-app-users.herokuapp.com/users/register", data={'Token': token,
                                                                                 "fname": request.form["fname"],
                                                                                 "lname": request.form["lname"],
                                                                                 "email": request.form["email"],
