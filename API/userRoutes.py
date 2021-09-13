@@ -1005,30 +1005,26 @@ def removecode():
 
 @app.route('/users/login', methods=['POST'])
 def login():
-    try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
-    except:
-        txt = {"Action": 'Token is Invalid'}
-        jsontxt = json.dumps(txt)
-        jsonFile = open("log.json", 'w')
-        jsonFile.write(jsontxt)
-        jsonFile.close()
-        out = json.dumps(txt, default=str)
-        resp = flask.make_response(out)
-        data = {'Response': out,
-                'status': 403}
-        return data
+    #try:
+    #    token = flask.request.form["Token"]
+    #    data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+    #except:
+    #    txt = {"Action": 'Token is Invalid'}
+    #    jsontxt = json.dumps(txt)
+    #    jsonFile = open("log.json", 'w')
+    #    jsonFile.write(jsontxt)
+    #    jsonFile.close()
+    #    out = json.dumps(txt, default=str)
+    #    resp = flask.make_response(out)
+    #    data = {'Response': out,
+    #            'status': 403}
+    #    return data
 
     info = {
         "email": request.form["email"],
         "password": request.form["password"]
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 382397d4a4e57cb2c2cbc32c9b3157d5c4625ec9
     validated = signinValidate(request.form)
     error = validated["error"]
     message = validated["message"]
