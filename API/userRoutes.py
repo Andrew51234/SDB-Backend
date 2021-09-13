@@ -1025,10 +1025,6 @@ def login():
         "password": request.form["password"]
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 382397d4a4e57cb2c2cbc32c9b3157d5c4625ec9
     validated = signinValidate(request.form)
     error = validated["error"]
     message = validated["message"]
