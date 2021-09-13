@@ -408,7 +408,7 @@ def login():
     r = requests.post(url="https://sdb-app-users.herokuapp.com/login", data={'Token': token,
                                                                              "email": request.form["email"],
                                                                              "password": request.form["password"]})
-    return r.text
+    return "haha"
 
 
 @app.route('/users/changepw', methods=['POST'])
