@@ -220,7 +220,7 @@ def createUser():
         return data
 
 
-@app.route('/users/getuserbike/<email>', methods=['GET'])
+@app.route('/users/getuserbike/<email>', methods=['POST'])
 def getUserbike(email):
     try:
         token = flask.request.form["Token"]
@@ -258,7 +258,7 @@ def getUserbike(email):
         return data
 
 
-@app.route('/users/getusertempbike/<email>', methods=['GET'])
+@app.route('/users/getusertempbike/<email>', methods=['POST'])
 def getUserTempBike(email):
     try:
         token = flask.request.form["Token"]
@@ -586,7 +586,7 @@ def removeNumber():
         return data
 
 
-@app.route('/users/gimmenums/<email>', methods=['GET'])
+@app.route('/users/gimmenums/<email>', methods=['POST'])
 def getEmergencyNumbers(email):
     try:
         token = flask.request.form["Token"]
@@ -718,7 +718,7 @@ def removeRide():
     # get all rides    
 
 
-@app.route('/users/getrides/<email>', methods=['GET'])
+@app.route('/users/getrides/<email>', methods=['POST'])
 def getRide(email):
     try:
         token = flask.request.form["Token"]
@@ -1133,7 +1133,7 @@ def changepw():
 ########### Newest stuff
 
 
-@app.route('/users/getname/<email>', methods=['GET'])
+@app.route('/users/getname/<email>', methods=['POST'])
 def getname(email):
     try:
         token = flask.request.form["Token"]
@@ -1173,7 +1173,7 @@ def getname(email):
         return data
 
 
-@app.route('/users/getbalance/<email>', methods=['GET'])
+@app.route('/users/getbalance/<email>', methods=['POST'])
 def getbalance(email):
     try:
         token = flask.request.form["Token"]
