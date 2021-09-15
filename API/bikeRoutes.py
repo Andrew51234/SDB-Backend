@@ -634,8 +634,8 @@ def getBikePrice(name):
 @app.route('/bikes/getBikeLocked/<name>', methods=['POST'])  # here
 def getBikeLocked(name):
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("getbikelocked")
     except:
         txt = {"Action": 'Token is Invalid'}
