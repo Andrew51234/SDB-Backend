@@ -685,12 +685,7 @@ def getBikeShared(name):
         data = {'Response': out,
                 'status': 403}
         return data
-    info = {
-        "Name": request.form["Name"],
-        "North": request.form["North"],
-        "East": request.form["East"],
-        "Speed": request.form["Speed"]
-    }
+
 
     x = db.getbikeShared(name)
     output = dict()
