@@ -154,7 +154,7 @@ def getBike():
 
 
 # ########################################################################################################################
-@app.route('/bikes', methods=['GET'])
+@app.route('/bikes', methods=['POST'])
 def getAllBikes():
     try:
         token = flask.request.form["Token"]
@@ -462,7 +462,7 @@ def updateBike2():
 @app.route('/bikes/shareBike', methods=['POST'])
 def sharebike():
     try:
-        #token = flask.request.form["Token"]
+        #token = flask.request.form["Token"]z
         #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("sharebike")
     except:
@@ -588,7 +588,7 @@ def editprice():
         return data
 
 
-@app.route('/bikes/getbikePrice/<name>', methods=['GET'])  # here
+@app.route('/bikes/getbikePrice/<name>', methods=['POST'])  # here
 def getBikePrice(name):
     try:
         #token = flask.request.form["Token"]
@@ -631,7 +631,7 @@ def getBikePrice(name):
         return data
 
 
-@app.route('/bikes/getBikeLocked/<name>', methods=['GET'])  # here
+@app.route('/bikes/getBikeLocked/<name>', methods=['POST'])  # here
 def getBikeLocked(name):
     try:
         #token = flask.request.form["Token"]
@@ -674,7 +674,7 @@ def getBikeLocked(name):
         return data
 
 
-@app.route('/bikes/getBikeShared/<name>', methods=['GET'])  # here
+@app.route('/bikes/getBikeShared/<name>', methods=['POST'])  # here
 def getBikeShared(name):
     try:
         #token = flask.request.form["Token"]
