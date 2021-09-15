@@ -223,8 +223,8 @@ def createUser():
 @app.route('/users/getuserbike/<email>', methods=['GET'])
 def getUserbike(email):
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("getuserbike")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -261,8 +261,8 @@ def getUserbike(email):
 @app.route('/users/getusertempbike/<email>', methods=['GET'])
 def getUserTempBike(email):
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("getusertempbike")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -298,8 +298,8 @@ def getUserTempBike(email):
 @app.route('/users/getcommand', methods=['POST'])
 def getCMD():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("getcommand")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -339,7 +339,7 @@ def getCMD():
 @app.route('/users/updatebikeid', methods=['POST'])
 def updateBikeID():
     try:
-       # token = flask.request.form["Token"]
+        #token = flask.request.form["Token"]
         #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("updatebikeid")
     except:
@@ -381,8 +381,8 @@ def updateBikeID():
 @app.route('/users/updatetempbikeid', methods=['POST'])
 def updateTempBikeID():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("updatetempbikeid")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -423,8 +423,8 @@ def updateTempBikeID():
 @app.route('/users/nullifybikeid', methods=['POST'])
 def nullifyBikeID():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("nullifybikeid")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -465,8 +465,8 @@ def nullifyBikeID():
 @app.route('/users/addnumber', methods=['POST'])
 def addNumber():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("addnumber")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -506,8 +506,8 @@ def addNumber():
 @app.route('/users/editnumber', methods=['POST'])
 def editNumber():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("editnumber")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -548,8 +548,8 @@ def editNumber():
 @app.route('/users/removenumber', methods=['POST'])
 def removeNumber():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("removenumber")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -589,8 +589,8 @@ def removeNumber():
 @app.route('/users/gimmenums/<email>', methods=['GET'])
 def getEmergencyNumbers(email):
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("gimmenums")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -633,8 +633,8 @@ def getEmergencyNumbers(email):
 @app.route('/users/createRide', methods=['POST'])
 def createRide():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("createride")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -678,8 +678,8 @@ def createRide():
 @app.route('/users/removeride', methods=['POST'])
 def removeRide():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("removeride")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -721,8 +721,8 @@ def removeRide():
 @app.route('/users/getrides/<email>', methods=['GET'])
 def getRide(email):
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("getrides")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -845,8 +845,8 @@ def emailVall():
 @app.route('/users/forgotpassword', methods=['POST'])
 def forgotPW():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("forgotpassword")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -945,8 +945,8 @@ def checkcode():
 @app.route('/users/changepwez', methods=['POST'])
 def changePWEZ():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("changepwez")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -1088,8 +1088,8 @@ def login():
 @app.route('/users/changepw', methods=['POST'])
 def changepw():
     try:
-       # token = flask.request.form["Token"]
-       # data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+       token = flask.request.form["Token"]
+       data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
        print("changepw")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -1176,8 +1176,8 @@ def getname(email):
 @app.route('/users/getbalance/<email>', methods=['GET'])
 def getbalance(email):
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("getbalance")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -1214,8 +1214,8 @@ def getbalance(email):
 @app.route('/users/nullifytempbikeid', methods=['POST'])
 def nullifyTempBikeID():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("nullifytempbikeid")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -1255,8 +1255,8 @@ def nullifyTempBikeID():
 @app.route('/users/addtobalance', methods=['POST'])  ## needs bike name (Name) and money number (money)
 def addtobalance():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("addtobalance")
     except:
         txt = {"Action": 'Token is Invalid'}
