@@ -57,7 +57,7 @@ import datetime
 from functools import wraps
 
 
-from flask_mail import Mail, Message
+#from flask_mail import Mail, Message
 
 app.config['SECRET_KEY'] = "key"
 
@@ -881,7 +881,7 @@ def forgotPW():
         app.config['MAIL_USE_TLS'] = False
         app.config['MAIL_USE_SSL'] = True
 
-        #  mail = Mail(app)
+        #mail = Mail(app)
 
         #msg = Message('Code to change password', sender = 'BikeroonsApp@gmail.com', recipients = [request.form['email']])
         #msg.body = "You have requested to change your password. To proceed with the process, enter the following code in the space provided in Bikeroons: "+code
