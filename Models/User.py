@@ -116,7 +116,7 @@ def signinValidate(json_input):
                          return  {"error":True, "message":value["message"]}
                 else:
                     if bcrypt.check_password_hash(value["pass"], json_input["password"]):                   
-                        return  {"error":False, "message": "Logged in seccessfully"}
+                        return  {"error":False, "message": "Logged in successfully"}
                     return {"error": True, "message": "password is incorrect!"}
      
      return  {"error":True, "message": "Email does not exist"}

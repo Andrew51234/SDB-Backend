@@ -1071,8 +1071,15 @@ def login():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 500}
-        return data
+        return Response(
+                response=json.dumps({
+                    resp
+                }),
+                status=500,
+                mimetype="application/json"
+            )
 
+    
 
 @app.route('/users/changepw', methods=['POST'])
 def changepw():
