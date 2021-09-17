@@ -647,7 +647,7 @@ def getBikeLocked(name):
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 403}
-        return data
+        return resp
 
     x = db.getbikeLocked(name)
     output = dict()
