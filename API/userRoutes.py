@@ -1113,6 +1113,7 @@ def changepw():
     validated = changePassword(request.form)
     error = validated["error"]
     msg = validated["message"]
+
     if (not error):
 
         # return "Sent"
@@ -1128,7 +1129,7 @@ def changepw():
         resp.headers['Output'] = out
         data = {'Response': out,
                 'status': 500}
-        return data
+        return resp
 
 
 ########### Newest stuff
