@@ -1129,7 +1129,14 @@ def changepw():
         resp.headers['Output'] = out
         data = {'Response': out,
                 'status': 500}
-        return resp
+        #return resp
+        return Response(
+                response=json.dumps({
+                    resp
+                }),
+                status=500,
+                mimetype="application/json"
+            )        
 
 
 ########### Newest stuff
