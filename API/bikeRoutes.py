@@ -53,8 +53,9 @@ def Welcome():
 @app.route('/bikes/Addbike', methods=['POST'])
 def AddBike():
     try:
-        token = flask.request.form["Token"]
-        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("addbike")
     except:
         txt = {"Action": 'Token is Invalid'}
         jsontxt = json.dumps(txt)
@@ -96,7 +97,7 @@ def AddBike():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         x = None
         output['data'] = x
@@ -505,8 +506,8 @@ def sharebike():
 @app.route('/bikes/stopShareBike', methods=['POST'])
 def stopsharebike():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("stopcharebike")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -564,10 +565,9 @@ def editprice():
                 'status': 403}
         return data
     info = {
-        "Name": request.form["Name"],
-        "North": request.form["North"],
-        "East": request.form["East"],
-        "Speed": request.form["Speed"]
+        "Base": request.form["Base"],
+        "Distance": request.form["Distance"],
+        "Time": request.form["Time"]
     }
 
     validated = db.editPrice(request.form)
@@ -579,7 +579,7 @@ def editprice():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]})
         resp = flask.make_response(out)
@@ -605,12 +605,6 @@ def getBikePrice(name):
         data = {'Response': out,
                 'status': 403}
         return data
-    info = {
-        "Name": request.form["Name"],
-        "North": request.form["North"],
-        "East": request.form["East"],
-        "Speed": request.form["Speed"]
-    }
 
     x = db.getbikePrice(name)
     output = dict()
@@ -622,7 +616,7 @@ def getBikePrice(name):
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps(output, default=str)
         resp = flask.make_response(out)
@@ -659,7 +653,7 @@ def getBikeLocked(name):
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps(output, default=str)
         resp = flask.make_response(out)
@@ -697,7 +691,7 @@ def getBikeShared(name):
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps(output, default=str)
         resp = flask.make_response(out)
