@@ -226,7 +226,7 @@ def get_location():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         output['data'] = None
         output['message'] = "False"
