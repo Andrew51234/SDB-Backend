@@ -235,7 +235,13 @@ def get_location():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 500}
-        return data
+        return Response(
+                response=json.dumps({
+                    resp
+                }),
+                status=500,
+                mimetype="application/json"
+            )
 
 
 ##########################################################################################################################
