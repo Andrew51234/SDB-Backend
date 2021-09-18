@@ -383,8 +383,8 @@ def updateLocked():
 @app.route('/bikes/unlockBike', methods=['POST'])
 def updateunLocked():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("unlockbike")
     except:
         txt = {"Action": 'Token is Invalid'}
