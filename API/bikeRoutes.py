@@ -724,7 +724,7 @@ def getBikespeed(name):
     if x is not None:
         output['data'] = x
         output['error'] = False
-        out = json.dumps({"Locked": x["message"]}, default=str)
+        out = json.dumps({"Speed": x["message"]}, default=str)
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
