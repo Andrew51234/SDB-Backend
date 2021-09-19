@@ -56,7 +56,8 @@ import datetime
 from functools import wraps
 
 
-from flaskext.mail import Mail, Message
+from flask import Flask
+from flaskext.mail import Mail
 
 app.config['SECRET_KEY'] = "key"
 
