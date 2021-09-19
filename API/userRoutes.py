@@ -131,7 +131,7 @@ def sendEmail():
     app.config['MAIL_USE_TLS'] = False
     app.config['MAIL_USE_SSL'] = True
 
-    #  mail = Mail(app)
+    #mail = Mail(app)
 
     #  msg = Message('Hello', sender = 'BikeroonsApp@gmail.com', recipients = ['lydiay711@gmail.com'])
     # msg.body = "This is the email body"
