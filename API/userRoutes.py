@@ -874,14 +874,17 @@ def forgotPW():
 
         print(code)
 
-
-        MAIL_USE_TLS = False
-        MAIL_SUPPRESS_SEND = False
-        MAIL_DEBUG = True
-        TESTING = False
-        MAIL_DEFAULT_SENDER = ('name', 'lydiay711@gmail.com')
-
-
+        app = Flask(__name__)
+        
+        app.config.update(dict(
+            DEBUG = True,
+            MAIL_SERVER = 'smtp.gmail.com',
+            MAIL_PORT = 587,
+            MAIL_USE_TLS = True,
+            MAIL_USE_SSL = False,
+            MAIL_USERNAME = 'bikeroonsApp@gmail.com',
+            MAIL_PASSWORD = 'Ll1234567',
+        ))
         #app.config['MAIL_SERVER'] = 'smtp.gmail.com'
         #app.config['MAIL_PORT'] = 465
         #app.config['MAIL_USERNAME'] = 'bikeroonsApp@gmail.com'
