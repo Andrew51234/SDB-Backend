@@ -469,8 +469,8 @@ def updateBike2():
 @app.route('/bikes/shareBike', methods=['POST'])
 def sharebike():
     try:
-        #token = flask.request.form["Token"]z
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("sharebike")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -484,10 +484,7 @@ def sharebike():
                 'status': 403}
         return data
     info = {
-        "Name": request.form["Name"],
-        "North": request.form["North"],
-        "East": request.form["East"],
-        "Speed": request.form["Speed"]
+        "Name": request.form["Name"]
     }
 
     validated = db.shareBike(request.form)
@@ -500,7 +497,7 @@ def sharebike():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]})
         resp = flask.make_response(out)
@@ -527,10 +524,7 @@ def stopsharebike():
                 'status': 403}
         return data
     info = {
-        "Name": request.form["Name"],
-        "North": request.form["North"],
-        "East": request.form["East"],
-        "Speed": request.form["Speed"]
+        "Name": request.form["Name"]
     }
 
     validated = db.stopShareBike(request.form)
@@ -542,7 +536,7 @@ def stopsharebike():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return data
+        return resp
     else:
         out = json.dumps({"message": validated["message"]})
         resp = flask.make_response(out)
