@@ -43,7 +43,7 @@ from Models.User import changePwEz
 
 from flask_bcrypt import Bcrypt
 
-# from flask_mail import Mail, Message
+from flask_mail import Mail, Message
 
 import random
 import string
@@ -57,7 +57,6 @@ from functools import wraps
 
 
 from flask import Flask
-from flaskext.mail import Mail
 
 app.config['SECRET_KEY'] = "key"
 
