@@ -43,7 +43,7 @@ from Models.User import changePwEz
 
 from flask_bcrypt import Bcrypt
 
-from flask_mail import Mail, Message
+#from flask_mail import Mail, Message
 
 import random
 import string
