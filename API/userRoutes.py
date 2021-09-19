@@ -874,12 +874,20 @@ def forgotPW():
 
         print(code)
 
-        app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-        app.config['MAIL_PORT'] = 465
-        app.config['MAIL_USERNAME'] = 'bikeroonsApp@gmail.com'
-        app.config['MAIL_PASSWORD'] = "Ll1234567"
-        app.config['MAIL_USE_TLS'] = False
-        app.config['MAIL_USE_SSL'] = True
+
+        MAIL_USE_TLS = False
+        MAIL_SUPPRESS_SEND = False
+        MAIL_DEBUG = True
+        TESTING = False
+        MAIL_DEFAULT_SENDER = ('name', 'lydiay711@gmail.com')
+
+
+        #app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+        #app.config['MAIL_PORT'] = 465
+        #app.config['MAIL_USERNAME'] = 'bikeroonsApp@gmail.com'
+        #app.config['MAIL_PASSWORD'] = "Ll1234567"
+        #app.config['MAIL_USE_TLS'] = False
+        #app.config['MAIL_USE_SSL'] = True
 
         mail = Mail(app)
 
