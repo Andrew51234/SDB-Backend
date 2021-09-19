@@ -698,3 +698,40 @@ def getBikeShared(name):
         data = {'Response': out,
                 'status': 500}
         return data
+
+
+@app.route('/bikes/getBikeSpeed/<name>', methods=['POST'])  # here
+def getBikespeed(name):
+    try:
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("getbikelocked")
+    except:
+        txt = {"Action": 'Token is Invalid'}
+        jsontxt = json.dumps(txt)
+        jsonFile = open("log.json", 'w')
+        jsonFile.write(jsontxt)
+        jsonFile.close()
+        out = json.dumps(txt, default=str)
+        resp = flask.make_response(out)
+        data = {'Response': out,
+                'status': 403}
+        return resp
+
+    x = db.getbikeSpeed(name)
+    output = dict()
+
+    if x is not None:
+        output['data'] = x
+        output['error'] = False
+        out = json.dumps({"Locked": x["message"]}, default=str)
+        resp = flask.make_response(out)
+        data = {'Response': out,
+                'status': 200}
+        return resp
+    else:
+        out = json.dumps(output, default=str)
+        resp = flask.make_response(out)
+        data = {'Response': out,
+                'status': 500}
+        return data

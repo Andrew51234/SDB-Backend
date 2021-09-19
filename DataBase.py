@@ -209,3 +209,12 @@ class DataBase:
             if record["Name"] == name:
                 return {"error": True, "message": record["Shared"]}
         return None
+
+
+    def getbikeSpeed(self, Name):
+        db = self.db.bike
+        cursor = list(db.find())
+        for record in cursor:
+            if record["Name"] == Name:
+                return {"error": True, "message": record["Speed"]}
+        return None
