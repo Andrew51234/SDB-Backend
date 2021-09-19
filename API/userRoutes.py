@@ -277,7 +277,7 @@ def getUserTempBike(email):
                 'status': 403}
         return data
 
-    validated = getUserTempBike(email)
+    validated = db.getUserTempB(email)
 
     error = validated["error"]
     message = validated["message"]
