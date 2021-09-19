@@ -141,7 +141,7 @@ def getBike():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return x
+        return resp
     else:
         output['data'] = None
         output['message'] = "False"
