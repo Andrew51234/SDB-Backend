@@ -891,7 +891,7 @@ def forgotPW():
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
-        return resp
+        return data
     else:
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
