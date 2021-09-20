@@ -183,7 +183,7 @@ def createUser():
             # info = {"fname": request.form['fname'], "lname": request.form['lname'], "email": request.form['email'],"password": request.form['password'],"bikeID":None,"numbers":[],"rides":[]}
             info = {"fname": request.form['fname'], "lname": request.form['lname'], "email": request.form['email'],
                     "password": hashedpw, "bikeID": "", "tempBikeID": "", "numbers": [], "rides": [],
-                    "numberOfRides": 0, "code": "", "balance": 0}
+                    "numberOfRides": 0, "code": "", "balance": 0, "location":{}}
 
             db.araf(info)
 
