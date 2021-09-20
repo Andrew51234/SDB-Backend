@@ -211,7 +211,7 @@ def createUser():
             resp = flask.make_response(out)
             data = {'Response': out,
                     'status': 500}
-            return data
+            return resp
     else:
         out = json.dumps({"message": val["message"]}, default=str)
         resp = flask.make_response(out)
