@@ -326,8 +326,8 @@ def getCMD():
 @app.route('/users/updatebikeid', methods=['POST'])
 def updateBikeID():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("updatebikeid")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -1295,6 +1295,92 @@ def addtobalance():
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
         resp.headers['Output'] = out
+        data = {'Response': out,
+                'status': 500}
+        return data
+
+
+@app.route('/users/updatelocation', methods=['POST'])
+def updateUserLoc():
+    try:
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("updatebikeid")
+    except:
+        txt = {"Action": 'Token is Invalid'}
+        jsontxt = json.dumps(txt)
+        jsonFile = open("log.json", 'w')
+        jsonFile.write(jsontxt)
+        jsonFile.close()
+        out = json.dumps(txt, default=str)
+        resp = flask.make_response(out)
+        data = {'Response': out,
+                'status': 403}
+        return data
+
+    info = {
+        "email": request.form["email"],
+        "longitude": request.form["longitude"],
+        "latitude": request.form["latitude"]
+    }
+
+    validated = db.updateUserLocation(request.form)
+
+    error = validated["error"]
+    message = validated["message"]
+    if (not error):
+
+        out = json.dumps(message, default=str)
+        resp = flask.make_response(out)
+        data = {'Response': out,
+                'status': 200}
+        return resp
+    else:
+        out = json.dumps({"message": validated["message"]}, default=str)
+        resp = flask.make_response(out)
+        data = {'Response': out,
+                'status': 500}
+        return data
+
+
+@app.route('/users/getlocation', methods=['POST'])
+def getloc():
+    try:
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("updatebikeid")
+    except:
+        txt = {"Action": 'Token is Invalid'}
+        jsontxt = json.dumps(txt)
+        jsonFile = open("log.json", 'w')
+        jsonFile.write(jsontxt)
+        jsonFile.close()
+        out = json.dumps(txt, default=str)
+        resp = flask.make_response(out)
+        data = {'Response': out,
+                'status': 403}
+        return data
+
+    info = {
+        "email": request.form["email"],
+        "longitude": request.form["longitude"],
+        "latitude": request.form["latitude"]
+    }
+
+    validated = db.getUserLocation(request.form)
+
+    error = validated["error"]
+    message = validated["message"]
+    if (not error):
+
+        out = json.dumps(message, default=str)
+        resp = flask.make_response(out)
+        data = {'Response': out,
+                'status': 200}
+        return resp
+    else:
+        out = json.dumps({"message": validated["message"]}, default=str)
+        resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 500}
         return data

@@ -416,7 +416,28 @@ class DataBase:
                 return {"error": False, "message":record["balance"]}  
                
         return {"error": True, "message": "Bike not linked to any user!"}
+
+
+    def updateUserLocation(self, params):
+        cursor1= self.db.users.find()            
+        for record in cursor1:   
+            if record['email'] == params['email']: 
+                
+                location = {params["longitude"], params["latitude"]}
+                self.db.users.find_one_and_update({"email" : params['email']},{"$set":{"location": location}},upsert=True)
+                
+                return {"error": False, "message":"User location updated"}                
+        return {"error": True, "message": "E-mail not found"}
+
+
+    def getUserLocation(self, email):
+        cursor1= self.db.users.find()            
+        for record in cursor1:
+            if record['email'] == email: 
+                return {"error": False, "message":record["location"]}
+        return {"error": True, "message": "E-mail not found"}
     
+
     def __del__(self):
         self.db.close()
         
