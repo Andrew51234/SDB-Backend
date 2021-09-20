@@ -933,14 +933,14 @@ def checkcode():
     auth = request.form["email"]
 
     if (not error):
-        tokenLogin = jwt.encode({'user': auth, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)},
+        changePasswordToken = jwt.encode({'user': auth, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)},
                                 app.config['SECRET_KEY'], "HS256")
         txt = {"Action": 'Token was authorized', "User": auth}
         # jsontxt = json.dumps(txt)
         jsonFile = open("log.json", 'w')
         # jsonFile.write(jsontxt)
         jsonFile.close()
-        out = json.dumps({'LoginToken': tokenLogin}, default=str)
+        out = json.dumps({'changePasswordToken': changePasswordToken}, default=str)
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
