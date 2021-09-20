@@ -187,18 +187,18 @@ def createUser():
 
             db.araf(info)
 
-            app.config['MAIL_SERVER']='smtp.gmail.com'
-            app.config['MAIL_PORT'] = 465
-            app.config['MAIL_USERNAME'] = 'bikeroonsApp@gmail.com'
-            app.config['MAIL_PASSWORD'] = "Ll1234567"
-            app.config['MAIL_USE_TLS'] = False
-            app.config['MAIL_USE_SSL'] = True
+            #app.config['MAIL_SERVER']='smtp.gmail.com'
+            #app.config['MAIL_PORT'] = 465
+            #app.config['MAIL_USERNAME'] = 'bikeroonsApp@gmail.com'
+            #app.config['MAIL_PASSWORD'] = "Ll1234567"
+            #app.config['MAIL_USE_TLS'] = False
+            #app.config['MAIL_USE_SSL'] = True
 
-            mail = Mail(app)
+            #mail = Mail(app)
 
-            msg = Message('Welcome to Bikeroons!', sender = 'BikeroonsApp@gmail.com', recipients = [request.form['email']])
-            msg.body = f"We are thrilled to have you become a member of the Bikeroons community\nYour Login information is:\n\nE-mail: {request.form['email']}\nPassword: {request.form['password']} "
-            mail.send(msg)
+            #msg = Message('Welcome to Bikeroons!', sender = 'BikeroonsApp@gmail.com', recipients = [request.form['email']])
+            #msg.body = f"We are thrilled to have you become a member of the Bikeroons community\nYour Login information is:\n\nE-mail: {request.form['email']}\nPassword: {request.form['password']} "
+            #mail.send(msg)
             
 
             out = json.dumps(message, default=str)
@@ -206,7 +206,7 @@ def createUser():
             data = {'Response': out,
                     'status': 200}
             return resp
-            
+
         else:
             out = json.dumps({"message": validated["message"]}, default=str)
             resp = flask.make_response(out)
@@ -877,21 +877,21 @@ def forgotPW():
 
         app = Flask(__name__)
         
-        app.config.update(dict(
-            DEBUG = True,
-            MAIL_SERVER = 'smtp.gmail.com',
-            MAIL_PORT = 587,
-            MAIL_USE_TLS = True,
-            MAIL_USE_SSL = False,
-            MAIL_USERNAME = 'bikeroonsApp@gmail.com',
-            MAIL_PASSWORD = 'Ll1234567',
-        ))
-        #app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-        #app.config['MAIL_PORT'] = 465
-        #app.config['MAIL_USERNAME'] = 'bikeroonsApp@gmail.com'
-        #app.config['MAIL_PASSWORD'] = "Ll1234567"
-        #app.config['MAIL_USE_TLS'] = False
-        #app.config['MAIL_USE_SSL'] = True
+        #app.config.update(dict(
+        #    DEBUG = True,
+        #    MAIL_SERVER = 'smtp.gmail.com',
+        #    MAIL_PORT = 587,
+        #    MAIL_USE_TLS = True,
+        #    MAIL_USE_SSL = False,
+        #    MAIL_USERNAME = 'bikeroonsApp@gmail.com',
+        #    MAIL_PASSWORD = 'Ll1234567',
+        #))
+        app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+        app.config['MAIL_PORT'] = 465
+        app.config['MAIL_USERNAME'] = 'bikeroonsApp@gmail.com'
+        app.config['MAIL_PASSWORD'] = "Ll1234567"
+        app.config['MAIL_USE_TLS'] = False
+        app.config['MAIL_USE_SSL'] = True
 
         mail = Mail(app)
 
