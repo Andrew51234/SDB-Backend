@@ -199,13 +199,14 @@ def createUser():
             msg = Message('Welcome to Bikeroons!', sender = 'BikeroonsApp@gmail.com', recipients = [request.form['email']])
             msg.body = f"We are thrilled to have you become a member of the Bikeroons community\nYour Login information is:\n\nE-mail: {request.form['email']}\nPassword: {request.form['password']} "
             mail.send(msg)
-            return "Sent"
+            
 
             out = json.dumps(message, default=str)
             resp = flask.make_response(out)
             data = {'Response': out,
                     'status': 200}
-            return data
+            return resp
+            
         else:
             out = json.dumps({"message": validated["message"]}, default=str)
             resp = flask.make_response(out)
