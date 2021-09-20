@@ -855,7 +855,7 @@ def forgotPW():
     #code = ''.join(random.choice(letters) for i in range(4))
 
     code = "test"
-    validated = forgotPassword(request.form, code)
+    validated = db.forgotPassWord(request.form, code)
     error = validated["error"]
 
     if (not error):
