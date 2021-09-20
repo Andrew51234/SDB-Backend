@@ -851,11 +851,11 @@ def forgotPW():
         "email": request.form["email"]
     }
 
-    #letters = string.ascii_letters
-    #code = ''.join(random.choice(letters) for i in range(4))
+    letters = string.ascii_letters
+    code = ''.join(random.choice(letters) for i in range(4))
 
-    code = "test"
-    validated = db.forgotPassWord(request.form, code)
+    #code = "test"
+    validated = forgotPassword(request.form, code)
     error = validated["error"]
 
     if (not error):
