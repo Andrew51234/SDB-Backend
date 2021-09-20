@@ -851,9 +851,10 @@ def forgotPW():
         "email": request.form["email"]
     }
 
-    letters = string.ascii_letters
-    code = ''.join(random.choice(letters) for i in range(4))
+    #letters = string.ascii_letters
+    #code = ''.join(random.choice(letters) for i in range(4))
 
+    code = "test"
     validated = forgotPassword(request.form, code)
     error = validated["error"]
 
@@ -884,6 +885,7 @@ def forgotPW():
         msg = Message('Code to change password', sender = 'BikeroonsApp@gmail.com', recipients = [request.form['email']])
         msg.body = "You have requested to change your password. To proceed with the process, enter the following code in the space provided in Bikeroons: "+code
         mail.send(msg)
+
 
         out = json.dumps({"message": validated["message"]}, default=str)
         resp = flask.make_response(out)
