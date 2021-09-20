@@ -65,7 +65,7 @@ from DataBase import DataBase
 db = DataBase()
 
 bcrypt = Bcrypt(app)
-
+mail = Mail(app)
 
 # @app.route('/users/<id>', methods=['GET'])
 # def getUser(id):
@@ -862,7 +862,6 @@ def forgotPW():
 
         print(code)
 
-        app = Flask(__name__)
         
         #app.config.update(dict(
         #    DEBUG = True,
@@ -880,7 +879,6 @@ def forgotPW():
         app.config['MAIL_USE_TLS'] = False
         app.config['MAIL_USE_SSL'] = True
 
-        mail = Mail(app)
         mail.init_app(app)
         
         msg = Message('Code to change password', sender = 'BikeroonsApp@gmail.com', recipients = [request.form['email']])
