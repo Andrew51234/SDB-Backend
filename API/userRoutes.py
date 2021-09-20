@@ -187,7 +187,7 @@ def createUser():
 
             db.araf(info)
 
-            out = json.dumps(message, default=str)
+            out = json.dumps({"message": validated["message"]}, default=str)
             resp = flask.make_response(out)
             data = {'Response': out,
                     'status': 200}
