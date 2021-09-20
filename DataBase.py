@@ -430,10 +430,10 @@ class DataBase:
         return {"error": True, "message": "E-mail not found"}
 
 
-    def getUserLocation(self, email):
+    def getUserLocation(self, params ): #params are = BikeName
         cursor1= self.db.users.find()            
         for record in cursor1:
-            if record['email'] == email: 
+            if record['bikeID'] == params["Name"]: 
                 return {"error": False, "message":record["location"]}
         return {"error": True, "message": "E-mail not found"}
     

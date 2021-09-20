@@ -1362,9 +1362,7 @@ def getloc():
         return data
 
     info = {
-        "email": request.form["email"],
-        "longitude": request.form["longitude"],
-        "latitude": request.form["latitude"]
+        "Name": request.form["Name"]
     }
 
     validated = db.getUserLocation(request.form)
