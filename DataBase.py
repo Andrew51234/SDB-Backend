@@ -423,7 +423,7 @@ class DataBase:
         for record in cursor1:   
             if record['email'] == params['email']: 
                 
-                location = {params["longitude"], params["latitude"]}
+                location = [params["longitude"], params["latitude"]]
                 self.db.users.find_one_and_update({"email" : params['email']},{"$set":{"location": location}},upsert=True)
                 
                 return {"error": False, "message":"User location updated"}                
