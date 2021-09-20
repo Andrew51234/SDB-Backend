@@ -831,11 +831,13 @@ def emailVall():
 ###############################################################################################
 #################################### FORGOT PASSWORD STUFF ####################################
 
+
+
 @app.route('/users/forgotpassword', methods=['POST'])
 def forgotPW():
     try:
-        #token = flask.request.form["Token"]
-        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        token = flask.request.form["Token"]
+        data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
         print("forgotpassword")
     except:
         txt = {"Action": 'Token is Invalid'}
@@ -927,9 +929,18 @@ def checkcode():
 
     validated = checkCode(request.form)
     error = validated["error"]
+    
+    auth = request.form["email"]
 
     if (not error):
-        out = json.dumps({"message": validated["message"]}, default=str)
+        tokenLogin = jwt.encode({'user': auth, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)},
+                                app.config['SECRET_KEY'], "HS256")
+        txt = {"Action": 'Token was authorized', "User": auth}
+        # jsontxt = json.dumps(txt)
+        jsonFile = open("log.json", 'w')
+        # jsonFile.write(jsontxt)
+        jsonFile.close()
+        out = json.dumps({'LoginToken': tokenLogin}, default=str)
         resp = flask.make_response(out)
         data = {'Response': out,
                 'status': 200}
@@ -964,7 +975,8 @@ def changePWEZ():
 
     info = {
         "email": request.form["email"],
-        "newpassword": request.form["newpassword"]
+        "newpassword": request.form["newpassword"],
+        
     }
 
     validated = changePwEz(request.form)
