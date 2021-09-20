@@ -22,4 +22,4 @@ setuptools
 six
 wheel
 pipenv
-
+Flask_Mail
