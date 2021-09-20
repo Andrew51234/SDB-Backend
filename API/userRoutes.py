@@ -940,7 +940,7 @@ def checkcode():
         resp.headers['Output'] = out
         data = {'Response': out,
                 'status': 500}
-        return data
+        return resp
 
 
 @app.route('/users/changepwez', methods=['POST'])
