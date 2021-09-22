@@ -226,6 +226,6 @@ class DataBase:
         cursor = list(db.find())
         for record in cursor:
             if record["Name"] == params['Name']:
-                self.db.bike.remove({"Name" : params['Name']},upsert=True)
+                self.db.bike.delete_one({"Name" : params['Name']})
                 return {"error": True, "message": record["Speed"]}
         return None
