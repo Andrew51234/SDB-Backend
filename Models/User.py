@@ -34,7 +34,8 @@ def email_func(email):
     
     if(value["error"]):
         return {"error": True, "message":value["message"]}
-     
+    else:
+        return {"error":False, "message":""}
     #if(re.search(regex,email)):
     #    print("Valid Email")
     #    return {"error":False, "message":""}
