@@ -736,3 +736,48 @@ def getBikespeed(name):
         data = {'Response': out,
                 'status': 500}
         return data
+
+############################### Delete Bike
+
+@app.route('/bikes/deleteBike', methods=['POST'])  # here
+def delBike():
+    try:
+        #token = flask.request.form["Token"]
+        #data = jwt.decode(token, app.config['SECRET_KEY'], ["HS256"])
+        print("getbike")
+    except:
+        txt = {"Action": 'Token is Invalid'}
+        jsontxt = json.dumps(txt)
+        jsonFile = open("../log.json", 'w')
+        jsonFile.write(jsontxt)
+        jsonFile.close()
+        out = json.dumps(txt, default=str)
+        resp = flask.make_response(out)
+        data = {'Response': out,
+                'status': 403}
+        return data
+    info = {
+        "Name": request.form["Name"]
+    }
+    x = db.deleteBike(info)
+    output = dict()
+    if x is not None:
+        output['data'] = x
+        output['message'] = 'Success'
+        output['error'] = False
+        out = json.dumps(output, default=str)
+        resp = flask.make_response(out)
+        data = {'Response': out,
+                'status': 200}
+        return resp
+    else:
+        output['data'] = None
+        output['message'] = "False"
+        output['error'] = True
+        out = json.dumps(output, default=str)
+        resp = flask.make_response(out)
+        resp.headers['Output'] = out
+        data = {'Response': out,
+                'status': 500}
+        return data
+

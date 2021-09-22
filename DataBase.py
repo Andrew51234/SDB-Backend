@@ -218,3 +218,14 @@ class DataBase:
             if record["Name"] == Name:
                 return {"error": True, "message": record["Speed"]}
         return None
+        #################################
+        
+
+    def deleteBike(self, params):
+        db = self.db.bike
+        cursor = list(db.find())
+        for record in cursor:
+            if record["Name"] == params['Name']:
+                self.db.bike.remove({"Name" : params['Name']},upsert=True)
+                return {"error": True, "message": record["Speed"]}
+        return None
