@@ -39,15 +39,15 @@ class DataBase:
         if self.db.users.find({'email': params["email"]}).limit(1).count() > 0:
             return {"error": True, "message": "This e-mail is already registered!"}
         else:
-              if(re.search(regex, params["email"])):
-                print("Valid Email")
-                return {"error":False, "message":""}
+              #if(re.search(regex, params["email"])):
+               # print("Valid Email")
+                #return {"error":False, "message":""}
                
-              else:
-                print("Invalid Email")
-                return {"error": True, "message": "Your e-mail should look like an e-mail!"}
+              #else:
+               # print("Invalid Email")
+               # return {"error": True, "message": "Your e-mail should look like an e-mail!"}
                
-        return {"error": False, "message": ""}
+            return {"error": False, "message": ""}
          
             
     def loginDB(self,params):
