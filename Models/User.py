@@ -10,7 +10,7 @@ db = DataBase()
 bcrypt = Bcrypt()
 
 
-regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'  
+regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
  
  ################## DONT FORGET TO ACCEPT NOTHING BUT THE THINGS SENT TO YOU
 
@@ -35,14 +35,13 @@ def email_func(email):
     if(value["error"]):
         return {"error": True, "message":value["message"]}
     else:
-        return {"error":False, "message":""}
-    #if(re.search(regex,email)):
-    #    print("Valid Email")
-    #    return {"error":False, "message":""}
-       
-    #else:
-    #    print("Invalid Email")
-    #    return {"error": True, "message": "Your e-mail should look like an e-mail!"}
+        if(re.search(regex,email)):
+            print("Valid Email")
+            return {"error":False, "message":""}
+        
+        else:
+            print("Invalid Email")
+            return {"error": True, "message": "Your e-mail should look like an e-mail!"}
        
 
 

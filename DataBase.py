@@ -14,7 +14,7 @@ import string
 
 bcrypt = Bcrypt()
 
-regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'  
+regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
  
 
 class DataBase:
@@ -39,15 +39,14 @@ class DataBase:
         if self.db.users.find({'email': params["email"]}).limit(1).count() > 0:
             return {"error": True, "message": "This e-mail is already registered!"}
         else:
-              #if(re.search(regex, params["email"])):
-               # print("Valid Email")
-                #return {"error":False, "message":""}
+              if(re.search(regex, params["email"])):
+                print("Valid Email")
+                return {"error":False, "message":""}
                
-              #else:
-               # print("Invalid Email")
-               # return {"error": True, "message": "Your e-mail should look like an e-mail!"}
-               
-            return {"error": False, "message": ""}
+              else:
+                print("Invalid Email")
+                return {"error": True, "message": "Your e-mail should look like an e-mail!"}
+            
          
             
     def loginDB(self,params):
