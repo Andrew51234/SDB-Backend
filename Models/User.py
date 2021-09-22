@@ -35,13 +35,13 @@ def email_func(email):
     if(value["error"]):
         return {"error": True, "message":value["message"]}
      
-    if(re.search(regex,email)):
-        print("Valid Email")
-        return {"error":False, "message":""}
+    #if(re.search(regex,email)):
+    #    print("Valid Email")
+    #    return {"error":False, "message":""}
        
-    else:
-        print("Invalid Email")
-        return {"error": True, "message": "Your e-mail should look like an e-mail!"}
+    #else:
+    #    print("Invalid Email")
+    #    return {"error": True, "message": "Your e-mail should look like an e-mail!"}
        
 
 
