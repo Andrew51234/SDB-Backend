@@ -82,7 +82,8 @@ def AddBike():
                 "Execute": request.form['Execute'],
                 "Command": request.form['Command'],
                 "Current_Network_Name": request.form['Current_Network_Name'],
-                "Current_Network_Password": request.form['Current_Network_Password']}
+                "Current_Network_Password": request.form['Current_Network_Password'],
+                "Price":[]}
         x = db.insertbike(info)
         output = dict()
         output['data'] = None
